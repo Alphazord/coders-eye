@@ -1,0 +1,70 @@
+{
+  "name": "coders-eye",
+  "version": "0.1.2",
+  "description": "Cross-repository AI code review for GitHub PRs — powered by Claude Code",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "coders-eye": "bin/coders-eye"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "code-review",
+    "github",
+    "pull-request",
+    "ai",
+    "claude",
+    "cross-repo",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildbyadnan/coders-eye.git",
+    "directory": "apps/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/buildbyadnan/coders-eye/issues"
+  },
+  "homepage": "https://github.com/buildbyadnan/coders-eye#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "nx": {
+    "targets": {
+      "typecheck": {
+        "command": "tsc --noEmit -p tsconfig.json",
+        "options": {
+          "cwd": "{projectRoot}"
+        }
+      },
+      "build": {
+        "command": "npx tsup",
+        "options": {
+          "cwd": "{projectRoot}"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "tsup": "^8.0.0",
+    "typescript": "~6.0.3"
+  }
+}
